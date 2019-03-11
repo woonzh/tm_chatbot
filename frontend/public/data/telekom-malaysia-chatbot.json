@@ -1,0 +1,8 @@
+{
+  "session_id": "string",
+  "intents": [
+    { "id": "string", "value": "intent value1" },
+    { "id": "string", "value": "intent value3" }
+  ],
+  "answer": "asad - can be empty"
+}

@@ -1,0 +1,9 @@
+version: "3"
+services:
+  telekom_malaysia_chatbot_frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: "telekom_malaysia_chatbot_frontend"
+    ports:
+      - ${FRONTEND_PORT:-3000}:3000

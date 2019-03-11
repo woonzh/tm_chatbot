@@ -1,0 +1,41 @@
+FROM tensorflow/tensorflow:1.12.0-gpu-py3
+
+RUN apt-get -y update
+RUN apt-get install -y --fix-missing \
+    build-essential \
+    cmake \
+    gfortran \
+    git \
+    wget \
+    curl \
+    graphicsmagick \
+    libgraphicsmagick1-dev \
+    libatlas-dev \
+    libavcodec-dev \
+    libavformat-dev \
+    libgtk2.0-dev \
+    libjpeg-dev \
+    liblapack-dev \
+    libswscale-dev \
+    pkg-config \
+    python3-dev \
+    python3-numpy \
+    python3-tk\
+    software-properties-common \
+    zip \
+    && apt-get clean && rm -rf /tmp/* /var/tmp/*
+
+RUN apt-get install -y curl
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash
+RUN apt-get install -y nodejs
+RUN apt-get clean -y
+
+COPY . app/
+
+WORKDIR app/
+
+RUN pip install -r server/personalised_query/requirements.txt
+
+RUN cd frontend && npm install && npm audit fix && npm rebuild node-sass && cp -rf ./node_modules_override/. ./node_modules
+
+EXPOSE 3000 3001

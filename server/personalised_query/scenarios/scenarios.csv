@@ -1,0 +1,17 @@
+id,name,Scenario id,summary,value,same id
+1,Customer is asking about billing delivery via e-mail. Customer not receive 1st bill after service installation,scenario 1,Billing delivery via e-mail.,Request for billing delivery via e-mail.    (1),
+2,Customer is asking for recent bill amount and outstanding payment if any,scenario 2,Bill amount and outstanding payment (WiFi),Bill amount and outstanding payment (WiFi)    (2),9
+3,Customer is asking about turbo service upgrading for this account,scenario 3,Turbo service upgrading,Turbo service upgrading    (3),
+4,Customer not able to use Internet and homeline/phone since last night. Suspected all service down. ,scenario 4,Internet and home line service down,Internet and home line service down    (4),
+5,Customer really angry since no one from TM calling customer and arrange for appointment since internet has been down for 5 days,scenario 5,Appointment for home internet servicing,Appointment for home internet servicing    (5),
+6,Customer request for technical (restorer) name and contact details,scenario 6,Technical restorer details,Technical restorer details    (6),
+7,Customer request to communicate with Live Chat Agents instead of virtual agents as customer insist to proceed with complaint due to long restoration,scenario 7,Communicate with live agent,Communicate with live agent    (7),
+8,Customer is asking about contract validity period,scenario 8,contract validity period,contract validity period    (8),
+9,Customer wants to make payment and would like to know the outstanding amount.             ,scenario 9,Bill amount and outstanding payment (Mobile),Bill amount and outstanding payment (Mobile)    (9),2
+10,"Customer face difficulties  to  make calls, when he tries to make a call the phone display as no service",scenario 10,Phone call service unavailable,Phone call service unavailable    (10),12
+11,"Customer has outstanding amount to pay however, the autopay did not function. ",scenario 11,Autopay function not working,Autopay function not working    (11),
+12,Customer complains unable to receive calls since yesterday.       ,scenario 12,Unable to receive calls,Unable to receive calls    (12),10
+13,Customer complaint unable to browse internet once purchased data reload pass.       ,scenario 13,Unable to browse internet after data reload pass purchase,Unable to browse internet after data reload pass purchase    (13),
+14,"Customer is in china, he tries making a call but failed to do so.   ",scenario 14,Unable to make overseas call,Unable to make overseas call    (14),
+15,Customer has multiple account in unifi and would like to know the account number.                        ,scenario 15,Account number enquiry,Account number enquiry    (15),
+16,Customer wrongly entered the sim pin and the phone was blocked and request for PUK Code.       ,scenario 16,PUK code request,PUK code request    (16),

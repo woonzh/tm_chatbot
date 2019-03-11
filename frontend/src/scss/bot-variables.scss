@@ -1,0 +1,116 @@
+body {
+  .bot-param.bot-param-file-manager {
+    width: 100%;
+    .dropzone {
+    }
+    .horizontal {
+      margin: 4px 0 0;
+      input {
+        width: 167px;
+        flex: none;
+      }
+      select {
+        width: 90px;
+        flex: none;
+        margin: 0 0 0 8px;
+      }
+    }
+    .bot-param-preview {
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin-bottom: 6px;
+      .name {
+        flex: 1;
+        font-size: 12px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin-left: 8px;
+      }
+      .core-icon {
+        font-size: 20px;
+        cursor: pointer;
+        margin-left: 8px;
+        &:hover {
+          color: $cl-highlight;
+        }
+      }
+      .icon-save {
+        margin-left: 0;
+      }
+      img,
+      video,
+      .csv {
+        display: none;
+      }
+      &:hover {
+        img,
+        video,
+        .csv {
+          display: block;
+          position: absolute;
+          max-width: 150px;
+          z-index: 1;
+          left: 0;
+          top: 27px;
+        }
+      }
+      &.error,
+      &.error:hover {
+        img,
+        video,
+        .csv,
+        .json {
+          display: none;
+        }
+      }
+    }
+  }
+}
+body .bot-variables,
+body .property-panel {
+  background-color: #000000;
+  .core-icon {
+    cursor: pointer;
+  }
+  .bot-param.bot-param-object {
+    > .horizontal {
+      .textfield-key {
+        margin-right: 12px;
+      }
+    }
+    .item {
+      display: inline-flex;
+      margin-bottom: 4px;
+      height: 24px;
+      font-size: 12px;
+    }
+  }
+}
+body .bot-variables {
+  .bot-param.bot-param-file-manager {
+    width: auto;
+    padding: 4px 0 2px;
+    display: flex;
+    flex-direction: column-reverse;
+    h4 {
+      display: none;
+    }
+    .bot-param-preview {
+      margin: 12px 0 0;
+      &:hover {
+        img,
+        video,
+        .csv {
+        }
+      }
+    }
+    .horizontal {
+      flex: 1;
+      input {
+        flex: 1;
+      }
+    }
+  }
+}

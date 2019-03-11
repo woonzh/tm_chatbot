@@ -1,0 +1,38 @@
+.page.page-profile {
+  > h3 {
+    .username {
+      span {
+        display: block;
+        font-weight: normal;
+        font-size: 50%;
+        font-style: italic;
+        color: $cl-placeholder;
+        &:before {
+          content: "(";
+        }
+        &:after {
+          content: ")";
+        }
+      }
+    }
+  }
+  .page-content > .field {
+    width: 50%;
+    padding-right: 2 * $margin;
+    margin-bottom: $margin/2;
+    &:nth-child(2n + 0) {
+      padding-right: 0;
+    }
+  }
+  .change-password-form {
+    .field {
+      width: 50%;
+      padding-right: 2 * $margin;
+      margin-bottom: $margin/2;
+      display: flex;
+      .field-label {
+        width: 180px;
+      }
+    }
+  }
+}

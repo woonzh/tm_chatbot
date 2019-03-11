@@ -1,0 +1,112 @@
+.page.page-telekomalaysiachatbot {
+  * {
+    // color: inherit;
+  }
+  h3 {
+    text-shadow: 0px 0px 11px white;
+  }
+  .chatbot {
+    width: 1000px;
+    margin: auto;
+  }
+  
+  .chatbot-heading {
+    margin-bottom: 20px;
+  }
+
+  .messenger.chatbot-messenger {
+    position: initial;
+    // background-color: #bce52c;
+    color: #626264;
+    height: 80vh;
+    width: 1000px;
+    // border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    .follow-ups {
+      padding-bottom: 8px;
+      min-width: 350px;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+    }
+    .instruction {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .message {
+      .answer {
+        margin-top: 4px;
+        font-weight: normal;
+        color: black;
+        &:before {
+          font-weight: bold;
+          content: "";
+          color: #61605f;
+        }
+      }
+      .faq-document {
+        margin-top: 4px;
+        font-weight: normal;
+        color: #61605f;
+        &:before {
+          font-weight: bold;
+          content: "Document: ";
+          color: black;
+        }
+      }
+      input {
+        border-radius: 0;
+        height: 24px;
+        line-height: 24px;
+        margin-bottom: 6px;
+        border: none;
+        font-size: 14px;
+        box-shadow: 0px 1px 3px #61605f;
+        &:hover,
+        &:focus {
+          box-shadow: 0px 2px 3px #61605f;
+        }
+      }
+      button {
+        margin: 0 8px 10px;
+        padding: 10px 10px;
+        border: none;
+        box-shadow: 0px 1px 3px #61605f;
+        background-color: #00000012;
+        color: #3e3e3e;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+        &:hover,
+        &:focus {
+          box-shadow: 0px 2px 3px #61605f;
+          color: black;
+        }
+      }
+    }
+    &:after {
+      display: none;
+    }
+    input {
+      background-color: white;
+      color: black;
+      // border: 1px solid #61605f;
+      // border-radius: 9px;
+      font-size: 16px;
+      box-shadow: 0px -1px 3px #61605f;
+      padding-left: 8px;
+      padding-right: 8px;
+      height: 44px;
+      line-height: 44px;
+      &:hover,
+      &:focus {
+        box-shadow: 0px -2px 3px #61605f;
+      }
+    }
+  }
+}

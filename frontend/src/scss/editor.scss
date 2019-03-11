@@ -1,0 +1,407 @@
+@import "/bot-selection";
+body .overlay-editor {
+  padding: 72px 0 0 72px;
+  .editor {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    h3 {
+      margin-bottom: 0;
+      height: 58px;
+    }
+    .content {
+      display: flex;
+      flex: 1;
+    }
+    .diagram {
+      flex: 1;
+      height: 100%;
+    }
+    .parameters {
+      height: 100%;
+      width: 300px;
+      border-left: 2px solid white;
+    }
+
+    .outputs {
+      width: 280px;
+      padding: 0 12px 24px;
+      .title {
+        color: $cl-yellow;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 24px 0 12px;
+        border-bottom: 1px solid $cl-yellow;
+      }
+      .output {
+        padding: 12px 0 4px;
+        margin: 0 12px;
+        cursor: pointer;
+        font-size: 12px;
+        display: flex;
+        line-height: 14px;
+        .font-icon {
+          margin-right: 6px;
+          font-size: 16px;
+        }
+        &:hover {
+          color: $cl-highlight;
+        }
+        &:last-child {
+          box-shadow: none;
+        }
+      }
+    }
+    .node-parameters {
+      padding: 12px;
+      position: absolute;
+      top: 80px;
+      left: 12px;
+      font-size: 14px;
+      width: 400px;
+      z-index: 3;
+      background-color: #333333;
+      border-radius: 6px;
+      box-shadow: 2px 4px 6px #ffffff;
+      .heading {
+        &:first-line {
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
+      .error {
+        color: $cl-red;
+      }
+    }
+    .node-parameter {
+      padding: 4px 0 0;
+      display: flex;
+      label {
+        font-weight: bold;
+        margin-right: 4px;
+        &:after {
+          content: ":";
+        }
+      }
+      div {
+        color: $cl-yellow;
+      }
+      &:first-of-type {
+        margin-top: 12px;
+      }
+      &.required {
+        label:after {
+          content: "(*):";
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}
+body .bot-params {
+  min-width: 580px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  border: 1px solid grey;
+  animation: fadein 1.5s;
+  h3 {
+    margin-bottom: 0;
+    font-weight: normal;
+    text-transform: none;
+    padding: 12px 12px 12px 16px;
+    background-color: #506b71;
+    .form-name {
+      color: inherit;
+      margin-right: 12px;
+      font-weight: bold;
+    }
+    .name {
+      color: $cl-yellow;
+      margin-right: 12px;
+      font-weight: bold;
+    }
+    .info {
+      display: block;
+      &:before {
+        display: none;
+        content: "(";
+        color: black;
+        opacity: 0.5;
+      }
+      &:after {
+        display: none;
+        content: ")";
+        color: black;
+        opacity: 0.5;
+      }
+      span.count,
+      span.required,
+      span.missing {
+        font-size: 14px;
+        font-weight: bold;
+        color: white;
+        margin-right: 12px;
+        &:before {
+          color: white;
+          opacity: 0.5;
+          font-weight: normal;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+      span.count:before {
+        content: "Total: ";
+      }
+      span.required:before {
+        content: "Required (*): ";
+      }
+      span.missing:before {
+        content: "Missing: ";
+        color: $cl-red;
+        opacity: 1;
+      }
+    }
+    .instruction {
+      display: none;
+      color: black;
+      opacity: 0.7;
+      font-size: 80%;
+      font-style: italic;
+      margin-top: 4px;
+      &:before {
+        content: "(";
+      }
+      &:after {
+        content: ")";
+      }
+    }
+  }
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 36px 18px 24px;
+    min-height: 200px;
+    position: relative;
+    .control {
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 36px;
+      background-color: #333333;
+      .checkboxfield {
+        padding: 3px;
+      }
+      .index {
+        height: 24px;
+        width: 24px;
+        background-color: black;
+        color: $cl-highlight;
+        border-radius: 50%;
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+      }
+      label {
+        font-size: 14px;
+      }
+    }
+    .showall {
+      display: block;
+      height: 400px;
+      width: 600px;
+      overflow-x: visible;
+      overflow-y: auto;
+      .bot-param {
+        margin-top: 24px;
+      }
+    }
+    .bot-param > h4 {
+      color: white;
+      padding: 0 0 4px 0;
+      span {
+        font-weight: normal;
+        font-style: italic;
+        color: $cl-red;
+      }
+      label {
+        font-size: 80%;
+        font-weight: normal;
+        font-style: italic;
+        margin: 4px 0 0;
+        display: block;
+        opacity: 0.7;
+      }
+    }
+    $arrow-height: 40px;
+    $arrow-width: 20px;
+    .prev,
+    .next {
+      cursor: pointer;
+      width: 0;
+      height: 0;
+      border-color: grey;
+      border-top: $arrow-height solid transparent;
+      border-bottom: $arrow-height solid transparent;
+    }
+    .prev {
+      border-right-width: $arrow-width;
+      border-right-style: solid;
+      margin-right: 24px;
+      &:hover {
+        border-right-color: white;
+      }
+    }
+    .next {
+      border-left-width: $arrow-width;
+      border-left-style: solid;
+      margin-left: 24px;
+      &:hover {
+        border-left-color: white;
+      }
+    }
+    .textfield {
+      width: 100%;
+      &::placeholder {
+        background-color: transparent;
+      }
+      &:invalid {
+        border: 1px solid $cl-red;
+      }
+      &:valid {
+        // background-color: $cl-highlight;
+      }
+    }
+    .file-select {
+      background-color: black;
+      border: 1px solid grey;
+      padding: 8px 0 4px;
+      margin: 0 0 8px;
+      .file {
+        display: inline-block;
+        font-size: 13px;
+        padding: 4px 12px;
+        margin: 0 0 4px;
+        width: 25%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        .font-icon {
+          font-size: 14px;
+          margin-right: 4px;
+        }
+        &:hover {
+          color: $cl-highlight;
+          background-color: grey;
+        }
+      }
+    }
+    .file-manager {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      height: 300px;
+      > h3 {
+        display: none;
+      }
+      .folders {
+        border-width: 1px;
+        width: 200px;
+        .folder {
+          padding: 0 12px;
+          h4 {
+            padding: 0;
+            font-weight: normal;
+            font-size: 13px;
+            height: 28px;
+            line-height: 28px;
+          }
+          .description {
+            display: none;
+          }
+        }
+      }
+      .files {
+        border-width: 1px;
+        height: 100%;
+      }
+    }
+    .items {
+      width: 100%;
+      .item {
+        margin: 0 8px 8px 0;
+      }
+    }
+    .bot-param {
+      width: 100%;
+      &.bot-param-file-manager {
+        > h4 {
+          position: relative;
+          height: 41px;
+          .btn-rounded {
+            position: absolute;
+            top: 0;
+            right: -9px;
+          }
+        }
+      }
+      &.bot-param-array {
+        width: 442px;
+      }
+      &.bot-param-object {
+        width: 442px;
+        .textfield-key {
+          width: 120px;
+          flex: initial;
+          margin-right: 12px;
+        }
+      }
+      &.error {
+        .dropzone {
+          border-color: $cl-red;
+        }
+      }
+    }
+  }
+}
+body .form-import-parameters {
+  width: 640px;
+  textarea {
+    height: 300px;
+  }
+}
+body .form-exported-panel {
+  h3 {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    .btn {
+      margin-left: 12px;
+    }
+  }
+  .script {
+    margin-right: 12px;
+  }
+  .variables {
+    max-width: 300px;
+    max-height: 440px;
+    overflow: auto;
+  }
+  textarea {
+    width: 600px;
+    height: 400px;
+  }
+}

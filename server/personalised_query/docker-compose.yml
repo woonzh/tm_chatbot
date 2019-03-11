@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  telekom_malaysia_chatbot_server:
+    image: telekom_malaysia_chatbot-server
+    ports: 
+      - 0.0.0.0:3001:3001
+    command: ["bash", "-c","python3 server.py"]

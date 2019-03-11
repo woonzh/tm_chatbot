@@ -1,0 +1,308 @@
+{
+  "name": "AI PROCESS AUTOMATION",
+  "shortname": "APA",
+  "logo": "/assets/logo_full.svg",
+  "images": [],
+  "routes": [
+    {
+      "component": "Application",
+      "path": "/applications"
+    },
+    {
+      "component": "Bots",
+      "path": "/bots"
+    },
+    {
+      "component": "Icons",
+      "public": true,
+      "path": "/icons"
+    },
+    {
+      "component": "Login",
+      "public": true,
+      "path": "/login",
+      "hasAppBar": false,
+      "hasDrawer": false
+    },
+    { "component": "Bots", "public": false, "path": "/", "default": true },
+    {
+      "component": "Products",
+      "public": false,
+      "path": "/projects"
+    },
+    { "component": "Product", "public": false, "path": "/projects/:id" },
+    { "component": "Profile", "public": false, "path": "/profile" },
+    { "component": "Preferences", "public": false, "path": "/preferences" },
+    {
+      "component": "Users",
+      "public": false,
+      "path": "/users",
+      "actions": ["Create User"]
+    },
+    {
+      "component": "User",
+      "public": false,
+      "path": "/users/:id",
+      "actions": ["Create User"]
+    },
+    { "component": "Utilities", "public": true, "path": "/utilities" },
+    { "component": "TextAnnotator", "public": true, "path": "/textannotator" },
+    {
+      "component": "Demo",
+      "public": true,
+      "path": "/demo",
+      "hasAppBar": false
+    },
+    {
+      "component": "Patent",
+      "public": true,
+      "path": "/patent",
+      "hasAppBar": false
+    },
+    {
+      "component": "NLG",
+      "public": true,
+      "path": "/nlg",
+      "hasAppBar": false
+    },
+    { "component": "Telstra", "public": true, "path": "/qna" },
+    {
+      "component": "TelekomMalaysiaChatbot",
+      "public": true,
+      "path": "/telekom-malaysia"
+    },
+    { "component": "Nifi", "public": true, "path": "/nifi" },
+    { "component": "Cdap", "public": false, "path": "/cdap" },
+    { "component": "GAN", "public": false, "path": "/gan" },
+    { "component": "IdOcr", "public": false, "path": "/idocr" }
+  ],
+  "menu": [
+    {
+      "name": "GAN",
+      "className": "gan",
+      "path": "/gan",
+      "icon": "far fa-images"
+    }
+  ],
+  "topmenu": [
+    {
+      "name": "Users",
+      "className": "users",
+      "path": "/users",
+      "icon": "fas fa-users",
+      "actions": ["Create User"]
+    }
+  ],
+  "executorTypes": [
+    { "name": "Language", "value": "tagui" },
+    { "name": "Javascript", "value": "js" },
+    { "name": "Python", "value": "py" },
+    { "name": "R", "value": "r" }
+  ],
+  "executorEngines": [
+    { "name": "Chrome Browser", "value": "tagui" },
+    { "name": "Orchestrator", "value": "orleans" }
+  ],
+  "dataTypes": [
+    { "name": "String", "value": "string" },
+    { "name": "Number", "value": "number" },
+    { "name": "Password", "value": "password" },
+    { "name": "Url", "value": "url" },
+    { "name": "Email", "value": "email" },
+    { "name": "Date", "value": "date" },
+    { "name": "File", "value": "file" },
+    { "name": "Image", "value": "image" },
+    { "name": "Video", "value": "video" },
+    { "name": "CSV", "value": "csv" },
+    { "name": "Boolean", "value": "boolean" },
+    { "name": "Object", "value": "object" },
+    { "name": "Array", "value": "array" }
+  ],
+  "accountFields": [
+    {
+      "label": "Email",
+      "field": "username",
+      "type": "email",
+      "placeholder": "Your email address",
+      "isNew": true,
+      "required": true
+    },
+    {
+      "label": "Password",
+      "field": "password",
+      "autoComplete": "password",
+      "type": "password",
+      "required": true
+    },
+    {
+      "label": "Confirm Password",
+      "field": "confirmed",
+      "autoComplete": "password",
+      "type": "password",
+      "required": true
+    }
+  ],
+  "profileFields": [
+    {
+      "index": 0,
+      "label": "Title",
+      "field": "title",
+      "type": "text",
+      "defaultValue": "Mr",
+      "placeholder": "Mr, Mrs, Miss, Sir, Dr, Prof....",
+      "required": true
+    },
+    {
+      "index": 2,
+      "label": "Family Name",
+      "field": "familyName",
+      "type": "text",
+      "required": true
+    },
+    {
+      "index": 4,
+      "label": "Given Name",
+      "field": "givenName",
+      "type": "text",
+      "required": true
+    },
+    {
+      "index": 6,
+      "label": "Middle Name",
+      "field": "middleName",
+      "type": "text"
+    },
+    {
+      "index": 8,
+      "label": "Gender",
+      "field": "gender",
+      "type": "select",
+      "options": [
+        { "text": "NA", "value": "NA" },
+        { "text": "Male", "value": "Male" },
+        { "text": "Female", "value": "Female" },
+        { "text": "Bio", "value": "Bio" },
+        { "text": "None", "value": "None" }
+      ],
+      "defaultValue": "Male",
+      "placeholder": "Male, Female, Bio, NA, None...",
+      "required": true
+    },
+    {
+      "index": 10,
+      "label": "Birth Date",
+      "field": "birthdate",
+      "type": "date",
+      "required": true
+    },
+    {
+      "index": 12,
+      "label": "Occupation",
+      "field": "occupation",
+      "type": "text",
+      "placeholder": "CEO, CTO, COO, PM, Engineer, Accountant, HR, Admin..."
+    },
+    {
+      "index": 1,
+      "label": "Company",
+      "field": "company",
+      "type": "text",
+      "right": true
+    },
+    {
+      "index": 3,
+      "label": "Phone",
+      "field": "phone",
+      "type": "text",
+      "right": true
+    },
+
+    {
+      "index": 5,
+      "label": "Country",
+      "field": "country",
+      "type": "text",
+      "right": true
+    },
+    {
+      "index": 7,
+      "label": "State",
+      "field": "state",
+      "type": "text",
+      "right": true
+    },
+    {
+      "index": 9,
+      "label": "Address 1",
+      "field": "address1",
+      "type": "text",
+      "right": true
+    },
+    {
+      "index": 11,
+      "label": "Address 2",
+      "field": "address2",
+      "type": "text",
+      "right": true
+    },
+    {
+      "index": 13,
+      "label": "Postcode",
+      "field": "postcode",
+      "type": "text",
+      "right": true
+    }
+  ],
+  "preferencesFields": [
+    {
+      "label": "Name format",
+      "field": "nameFormat",
+      "type": "select",
+      "options": [
+        {
+          "text": "{Title}, {Family Name} {Middle Name} {Given Name}",
+          "value": "title, familyName middleName givenName"
+        },
+        {
+          "text": "{Title}, {Given Name} {Middle Name} {Family Name}",
+          "value": "title, givenName middleName familyName"
+        },
+        {
+          "text": "{Title}, {Family Name} {Given Name}",
+          "value": "title, familyName givenName"
+        },
+        {
+          "text": "{Title}, {Given Name} {Family Name}",
+          "value": "title, givenName familyName"
+        },
+        {
+          "text": "{Family Name} {Middle Name} {Given Name}",
+          "value": "familyName middleName givenName"
+        },
+        {
+          "text": "{Given Name} {Middle Name} {Family Name}",
+          "value": "givenName middleName familyName"
+        },
+        {
+          "text": "{Family Name} {Given Name}",
+          "value": "familyName givenName"
+        },
+        {
+          "text": "{Given Name} {Family Name}",
+          "value": "givenName familyName"
+        }
+      ],
+      "defaultValue": "title, familyName middleName givenName",
+      "placeholder": "Name format, eg: title, familyName middleName givenName",
+      "required": true
+    },
+    {
+      "label": "Home page",
+      "field": "homepage",
+      "defaultValue": "/",
+      "placeholder": "This page will be the first page opened after logged in, eg: /projects",
+      "type": "text"
+    }
+  ],
+  "helper": "My name is Bob. I have a dog."
+}

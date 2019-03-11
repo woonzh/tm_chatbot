@@ -1,0 +1,54 @@
+.page.page-gan {
+  .image,
+  .video {
+    width: 240px;
+    height: 180px;
+    display: inline-flex;
+    margin: 40px 40px 0 0;
+    box-shadow: 1px 2px 5px white;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    cursor: pointer;
+    img,
+    video {
+      width: 100%;
+      vertical-align: top;
+      display: block;
+    }
+    &:hover {
+      box-shadow: 1px 2px 5px $cl-yellow;
+      width: 260px;
+      height: 200px;
+      margin: 20px 20px 0 0;
+    }
+  }
+  .tabs {
+    button {
+      opacity: 1;
+      span {
+        font-weight: bold;
+        font-size: 18px;
+        color: white;
+        &:hover {
+          color: $cl-yellow;
+        }
+      }
+    }
+  }
+}
+.overlay-gan-resizable {
+  .gan-resizable {
+    // padding: 12px;
+    box-shadow: 1px 2px 8px $cl-yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 400px;
+    max-width: 800px;
+    width: 800px;
+    border: 12px solid white;
+    border-radius: 4px;
+    background-color: white;
+  }
+}

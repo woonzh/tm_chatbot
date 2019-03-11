@@ -1,0 +1,78 @@
+.form.form-add-bot {
+  width: 60%;
+  max-height: calc(100% - 24px);
+  overflow: hidden;
+  h3 {
+    padding-bottom: 12px;
+    width: 100%;
+    text-align: center;
+  }
+  > .horizontal {
+    > * {
+      margin-left: 12px;
+      // flex: 1;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+  .script {
+    height: 200px;
+    margin: 18px 0 0;
+  }
+  .secondline {
+    margin-bottom: 12px;
+    height: 44px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    > * {
+      margin-right: 12px;
+    }
+    select {
+      width: 100px;
+      flex: initial;
+    }
+    .btn {
+      margin-right: 0;
+    }
+  }
+  .parameters-wrapper {
+  }
+  .parameters {
+    overflow: auto;
+    max-height: 2 * 125px + 68px;
+    border-top: 1px solid grey;
+  }
+  .parameter {
+    margin-top: 12px;
+    > div {
+      > * {
+        flex: 1;
+        margin-left: 8px;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+  .param-description {
+    height: 48px;
+  }
+  .actions {
+    .selectfield {
+      width: auto;
+      margin: 0 0 0 12px;
+    }
+    .btn {
+      margin-left: 12px;
+      height: 36px;
+      width: 36px;
+      padding: 0;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}

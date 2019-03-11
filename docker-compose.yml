@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  telekom_malaysia_chatbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: telekom_malaysia_chatbot
+    ports: 
+      - 3000:3000
+      - 0.0.0.0:3001:3001
+    command: ["bash", "-c", "cd server/personalised_query && nohup python3 server.py >> server.logs & cd frontend && nohup npm run start-tm >> frontend.logs"]

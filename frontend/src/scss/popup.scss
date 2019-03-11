@@ -1,0 +1,92 @@
+body .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1201;
+  > .close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 44px;
+    cursor: pointer;
+    &:hover {
+      color: $cl-highlight;
+    }
+  }
+  .popup {
+    position: relative;
+    border-radius: 4px;
+    background-color: #333333;
+    .actions {
+      border-bottom: 1px solid $cl-highlight;
+    }
+    .content {
+      padding: $margin;
+    }
+    &.confirm-box {
+      width: 250px;
+      padding-top: 24px;
+      text-align: center;
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: $cl-yellow;
+      }
+      .close {
+        position: absolute;
+        font-size: 44px;
+        cursor: pointer;
+        top: 0px;
+        right: 0px;
+        &:hover {
+          color: $cl-highlight;
+        }
+      }
+      .bottom-actions {
+        padding-top: 12px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &.inside {
+    position: absolute;
+  }
+  &.bottom {
+    align-items: flex-end;
+  }
+  &.top {
+    align-items: flex-start;
+  }
+  &.right {
+    justify-content: flex-end;
+  }
+  &.left {
+    justify-content: flex-start;
+  }
+  &.bottom-right {
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  &.bottom-left {
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+  &.top-right {
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  &.top-left {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}

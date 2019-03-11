@@ -1,0 +1,98 @@
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes showup {
+  from {
+    height: 0;
+  }
+  to {
+    height: $property-height;
+  }
+}
+@keyframes hidedown {
+  from {
+    height: $property-height;
+  }
+  to {
+    height: 0;
+  }
+}
+@keyframes rightpanelshow {
+  from {
+    width: 0;
+  }
+  to {
+    width: $property-panel-bw;
+  }
+}
+@keyframes rightpanelhide {
+  from {
+    width: $property-panel-bw;
+  }
+  to {
+    width: 0;
+  }
+}
+
+@keyframes leftpanelshow {
+  from {
+    width: 0;
+  }
+  to {
+    width: $palette-width;
+  }
+}
+@keyframes leftpanelhide {
+  from {
+    width: $palette-width;
+  }
+  to {
+    width: 0;
+  }
+}
+
+@keyframes bottom-panel-expand-left {
+  from {
+    left: $palette-width;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes bottom-panel-reduce-left {
+  from {
+    left: 0;
+  }
+  to {
+    left: $palette-width;
+  }
+}

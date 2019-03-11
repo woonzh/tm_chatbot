@@ -1,0 +1,36 @@
+.navigation {
+  flex-grow: 1;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  border-bottom: $border-thick-grey;
+  border-left: $border-thick-grey;
+  border-right: $border-thick-grey;
+  .main-content {
+    flex: 1;
+    display: flex;
+    width: calc(100% - 72px);
+    padding-top: 30px;
+    // margin-top: $appbar-height;
+    position: relative;
+  }
+  &.no-appbar {
+    border: none;
+    .main-content {
+      margin-top: 0;
+    }
+  }
+  &.no-drawer {
+    .main-content {
+      width: calc(100%);
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navigation {
+    border: none;
+  }
+}

@@ -1,0 +1,99 @@
+$bottom: 16px;
+$airpa-logo-width: 183px;
+$airpa-logo-height: 35px;
+$airpa-logo-font-size: 16px;
+$text-size: 14px;
+
+.navigation .appbar {
+  display: none;
+  z-index: 1201;
+  background: black;
+  border-bottom: $border-thick-grey;
+  box-shadow: none;
+  color: $cl-white;
+  * {
+    color: inherit;
+  }
+  i {
+    font-size: 20px;
+    cursor: pointer;
+    &:hover {
+      color: $cl-highlight;
+    }
+  }
+  .btn {
+    padding: 0;
+  }
+  .hide {
+    display: none;
+  }
+  .burger-icon {
+    margin: 0;
+    padding: 0;
+    width: 72px;
+    height: 72px;
+    border-radius: 0;
+    border-right: $border-thick-grey;
+    background-color: #506b71;
+    color: $cl-highlight;
+  }
+  .appbar-content {
+    // display: flex;
+    display: none;
+    align-items: center;
+    width: 100%;
+    height: $appbar-height;
+    > * {
+      margin-right: 24px;
+      &:first-child {
+        margin-right: 0;
+      }
+    }
+    .logo {
+      margin-right: 12px;
+      margin-left: 40px;
+      img {
+        height: $airpa-logo-height;
+      }
+    }
+    .user-profile {
+      font-size: 12px;
+    }
+    .user-preferences {
+    }
+    .user-logout {
+    }
+    .counter {
+      height: 44px;
+      width: 44px;
+      background-color: #cacaca;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: red;
+    }
+  }
+  &.appbar-shift {
+    margin-left: $drawer-width;
+    width: calc(100% - 240px);
+  }
+}
+@media screen and (max-width: 600px) {
+  .navigation .appbar {
+    .burger-icon {
+      width: 44px;
+      background-color: transparent;
+      border: none;
+    }
+    .appbar-content {
+      .logo {
+        margin-left: 0;
+        img {
+          width: 100px;
+          height: auto;
+        }
+      }
+    }
+  }
+}

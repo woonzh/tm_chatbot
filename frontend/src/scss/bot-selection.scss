@@ -1,0 +1,64 @@
+body .bot-selection {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 800px;
+  padding: 56px 24px 24px;
+  .searchbar {
+    display: flex;
+    h4 {
+      text-transform: uppercase;
+      color: $cl-highlight;
+    }
+    .section-description {
+      margin: 4px 0;
+      font-style: italic;
+      font-size: 13px;
+    }
+    .section-bots-filter {
+      display: inline-block;
+      width: 280px;
+      padding-right: 24px;
+    }
+    .section-bots-searchBar {
+      display: inline-block;
+      flex: 1;
+    }
+  }
+  .categories {
+    flex: 1;
+    overflow: auto;
+    margin-top: 12px;
+    border-top: 1px solid grey;
+    .category {
+      padding: 12px 0;
+      border-bottom: 1px solid grey;
+      h4 {
+        text-transform: uppercase;
+        color: $cl-yellow;
+        margin-bottom: 4px;
+      }
+      .bots {
+        text-align: center;
+        .bot {
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin: 0 4px 12px;
+          width: 100px;
+          text-align: center;
+          .hexagon {
+            @include hexagon(60px, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
+          }
+          .name {
+            width: 100%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+}

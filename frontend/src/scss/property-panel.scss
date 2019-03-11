@@ -1,0 +1,172 @@
+body .main-content .property-panel {
+  animation: rightpanelshow 0.5s;
+  position: relative;
+  width: $property-panel-bw;
+  height: calc(100% - 2px);
+  display: flex;
+  flex-direction: column;
+  z-index: 1201;
+  margin-top: 1px;
+  .bot-param.bot-param-file-manager {
+    .dropzone {
+      .bot-param-preview {
+        &:hover {
+          img,
+          video,
+          .csv {
+            width: 150px;
+            z-index: 3;
+            left: -172px;
+          }
+        }
+      }
+    }
+  }
+  .handle {
+    height: $property-panel-handle-h;
+    width: $property-panel-handle-w;
+    transform: rotate(-90deg);
+    position: absolute;
+    top: calc(50% - 24px);
+    left: -126px;
+    background-color: $property-panel-handle-bg;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .tabs {
+    border-top: $border-thick-red;
+    height: $property-panel-tab-height;
+    min-height: auto;
+  }
+  .tab {
+    min-height: auto;
+    display: inline-flex;
+    > span:first-child {
+      display: flex;
+      flex: 1;
+      height: $property-panel-tab-height - 1px;
+      > span {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        flex: 1;
+        > span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex: 1;
+        }
+      }
+    }
+    .tab-label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      .btn {
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+  .panel-content {
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+    background-color: $property-panel-content-bg;
+    color: white;
+    flex: 1;
+    padding: 12px 20px;
+    border-left: $border-thin-red;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    h3 {
+      text-transform: uppercase;
+      color: #fdd800;
+    }
+    .description {
+      font-size: 85%;
+      font-style: italic;
+      margin: 5px 0 5px 0;
+      opacity: 0.5;
+      padding: 0 0 0px 0;
+    }
+    .tab-containers {
+      border-top: 1px solid grey;
+      padding-top: 12px;
+      flex: 1;
+      overflow: visible;
+    }
+    .parameter {
+      margin: 8px 0;
+      > h4 {
+        font-size: 20px;
+        font-weight: normal;
+        color: $cl-yellow;
+        margin: 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .selectfield {
+          width: 90px;
+          flex: none;
+          margin: 0 0 0 8px;
+        }
+      }
+      > .description {
+        font-size: 70%;
+        &:before {
+          content: "(";
+        }
+        &:after {
+          content: ")";
+        }
+      }
+      .value-wrapper {
+        display: flex;
+        margin-top: 6px;
+        .bot-param {
+          flex: 1;
+        }
+        .selectfield {
+          width: 90px;
+          margin-left: 12px;
+        }
+      }
+      &:last-child {
+        border-bottom-color: transparent;
+      }
+    }
+    .actions {
+      padding-top: 12px;
+      border-top: 1px solid grey;
+    }
+  }
+  .output {
+    position: relative;
+    margin: 8px 0;
+    .circle {
+      margin-left: 12px;
+    }
+    .referencefield {
+      flex: 1;
+    }
+  }
+  &.hide {
+    animation: rightpanelhide 0.5s;
+    width: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+body .main-content.hide-palette .property-panel {
+}

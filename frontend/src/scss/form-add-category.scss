@@ -1,0 +1,13 @@
+.form.form-add-category {
+  width: 30%;
+  max-height: calc(100% - 24px);
+  overflow: hidden;
+  h3 {
+    padding-bottom: 12px;
+    width: 100%;
+    text-align: center;
+    .circle {
+      margin-left: 12px;
+    }
+  }
+}

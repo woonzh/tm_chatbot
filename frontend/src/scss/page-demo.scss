@@ -1,0 +1,37 @@
+.page.page-demo {
+  padding-top: 70px;
+  padding-bottom: 0;
+  padding-right: 0;
+  height: 100%;
+  display: flex;
+  ::-webkit-scrollbar {
+    width: 1em;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: 1px solid #40bdc3;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #3f6169;
+    outline: 1px solid slategrey;
+  }
+  .sidebar {
+    width: 35%;
+    height: 100%;
+    text-align: center;
+    background-color: #000;
+    padding: 27px 24px;
+    border-left: 1.5px solid rgba(255, 255, 255, 0.5);
+    border-right: 1.5px solid rgba(255, 255, 255, 0.5);
+    .messageList {
+      height: 320px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
+  .charts {
+    flex: 1;
+    padding-top: 26px;
+  }
+}

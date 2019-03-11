@@ -1,0 +1,9 @@
+{
+  "extends": "react-app",
+  "rules": {
+    "eqeqeq": ["off", "always"],
+    "no-extend-native": ["off", "always"],
+    "array-callback-return": ["off", "always"],
+    "react/no-direct-mutation-state": ["off", "always"]
+  }
+}

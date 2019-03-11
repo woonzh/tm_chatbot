@@ -1,0 +1,30 @@
+image: node:10.12.0 # can be upgraded, depending on your node version used
+
+before_script:
+  - rm -rf node_modules
+  - rm -rf package-lock.json
+  - npm install
+  - npm audit fix
+  - npm rebuild node-sass
+  - cp -rf ./node_modules_override/. ./node_modules
+
+test:
+  stage: test
+  tags:
+    - development
+  script:
+    - CI=true npm test
+
+pages:
+  stage: deploy
+  tags:
+    - development
+  script:
+    - CI=true npm build
+    - rm -rf public
+    - mv build public
+  artifacts:
+    paths:
+      - public # GitLab pages serve from a 'public' directory
+  only:
+    - development # run on master branch

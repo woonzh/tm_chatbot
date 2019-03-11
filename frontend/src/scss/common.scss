@@ -1,0 +1,548 @@
+html {
+  background-color: $bg-theme;
+  height: 100%;
+}
+body {
+  @extend .vertical-scrollbar;
+  margin: 0;
+  padding: 0;
+  background-color: $bg-theme;
+  color: #cacaca;
+  height: 100%;
+  font-family: $font-family;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    padding: 0;
+  }
+  .placeholder {
+    color: $cl-placeholder;
+  }
+  a {
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  canvas {
+    outline: none;
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"],
+  input[type="url"],
+  input[type="file"],
+  input[type="date"],
+  textarea,
+  select {
+    @include placeholder($cl-placeholder);
+    width: 100%;
+    flex: 1;
+    background-color: #1a1a1a;
+    outline: 0;
+    border-color: rgba(172, 219, 221, 1);
+    border-width: 0 0 1px 0;
+    border-radius: 4px;
+    font-size: $font-size-inputfield;
+    font-weight: normal;
+    color: $cl-yellow;
+    padding: 0 5px;
+    line-height: 32px;
+    height: 32px;
+    resize: none;
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+      border-color: #00ffff;
+    }
+    &.bigger {
+      font-size: 1.2 * $font-size-inputfield;
+    }
+    &.biggest {
+      font-size: 1.5 * $font-size-inputfield;
+    }
+  }
+  textarea {
+    height: 88px;
+    line-height: 16px;
+    padding: 5px 8px;
+  }
+  .field {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    .field-label {
+      width: 120px;
+      font-size: 90%;
+      font-style: italic;
+    }
+    .field-value {
+      flex: 1;
+      color: $cl-highlight;
+    }
+  }
+  .inputfield,
+  .selectfield {
+    font-size: 14px;
+    width: 100%;
+    margin: 0 0 8px;
+    > label {
+      font-size: inherit;
+      z-index: 1;
+      margin-left: 4px;
+      transform: translate(0, 1.5px) scale(0.75);
+      transform-origin: top left;
+    }
+    > div {
+      font-size: inherit;
+      width: 100%;
+    }
+    input,
+    select {
+      border-bottom-width: 1px;
+      padding-left: 4px;
+      font-size: $font-size-inputfield;
+      font-weight: normal;
+    }
+    &.nomargin {
+      margin: 0;
+    }
+    &.big {
+      input,
+      select {
+        font-size: 1.2 * $font-size-inputfield;
+      }
+    }
+    &.bigger {
+      input,
+      select {
+        font-size: 1.5 * $font-size-inputfield;
+      }
+    }
+    &.biggest {
+      input,
+      select {
+        font-size: 1.8 * $font-size-inputfield;
+      }
+    }
+  }
+  .resizable {
+    img,
+    video {
+      width: 100%;
+    }
+  }
+  .btn-rounded {
+    height: 36px;
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    &.small {
+      height: 24px;
+      width: 24px;
+    }
+  }
+  .btn {
+    border: 1px solid #3e3e3e;
+    border-radius: 3px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    min-width: auto;
+    min-height: 24px;
+    padding: 0 12px;
+    background-color: #333333;
+    cursor: pointer;
+    .span:first-child {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    svg {
+      margin-right: 8px;
+    }
+    &.no-name {
+      i:before {
+        margin-right: 0;
+      }
+    }
+    &.small {
+      &.circle {
+        height: 24px;
+        width: 24px;
+        font-size: 10px;
+      }
+    }
+    &.circle {
+      border-radius: 50%;
+      min-width: auto;
+      height: 36px;
+      width: 36px;
+      min-height: auto;
+      padding: 0;
+      i:before {
+        margin-right: 0;
+      }
+    }
+    &.nopadding {
+      padding: 0;
+    }
+    &.transparent,
+    &.transparent:hover {
+      cursor: text;
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+    }
+    &.freecolor {
+      color: inherit;
+      &:hover {
+        color: inherit;
+      }
+    }
+    &.cyan {
+      color: black;
+      background-color: $cl-highlight;
+      border-color: $cl-highlight;
+      &:hover {
+        color: white;
+      }
+    }
+    &.red {
+      color: #ff6464;
+      &:hover {
+        background: #ff6464;
+        color: black;
+      }
+    }
+    &.yellow {
+      color: black;
+      background-color: #f8d800;
+      border-color: #f8d800;
+      &:hover {
+        color: white;
+        background-color: #f8d800;
+      }
+    }
+    &.uppercase {
+      text-transform: uppercase;
+    }
+    i:before {
+      margin-right: 12px;
+    }
+    &:hover {
+      box-shadow: 1px 3px 11px rgba(0, 0, 0, 0.7);
+      background-color: #00b3c8;
+      color: black;
+    }
+  }
+  .textfield {
+    font-size: 14px;
+    width: 100%;
+    > label {
+      font-size: inherit;
+    }
+    > div {
+      font-size: inherit;
+      width: 100%;
+    }
+    .image-icon,
+    .font-icon {
+      height: 18px;
+      font-size: 16px;
+    }
+  }
+  .fit {
+    width: 100%;
+    height: 100%;
+  }
+  .fullW {
+    width: 100%;
+  }
+  .fullH {
+    height: 100%;
+  }
+  .flexfree {
+    flex: initial !important;
+  }
+  .horizontal {
+    display: flex;
+    flex-direction: row;
+    > .fit {
+      flex: 1;
+      width: auto;
+    }
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+    &.center {
+      justify-content: center;
+    }
+    &.left {
+      justify-content: flex-start;
+    }
+    &.right {
+      justify-content: flex-start;
+    }
+    &.middle {
+      align-items: center;
+    }
+    &.top {
+      align-items: flex-start;
+    }
+    &.bottom {
+      align-items: flex-end;
+    }
+  }
+  .vertical {
+    display: flex;
+    flex-direction: column;
+    > .fit {
+      flex: 1;
+      height: auto;
+    }
+    &.reverse {
+      flex-direction: column-reverse;
+    }
+    &.center {
+      align-items: center;
+    }
+    &.left {
+      align-items: flex-start;
+    }
+    &.right {
+      align-items: flex-end;
+    }
+    &.middle {
+      justify-content: center;
+    }
+    &.top {
+      justify-content: flex-start;
+    }
+    &.bottom {
+      justify-content: flex-end;
+    }
+  }
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    button,
+    .btn {
+      margin: 0 0 0 8px;
+      &:first-child {
+        margin: 0 0 0 0;
+      }
+    }
+  }
+  .icon {
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    i {
+      font-size: 16px;
+      color: #fff;
+    }
+    &:hover {
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  .form {
+    border-radius: 4px;
+    padding: 12px;
+    background-color: #333333;
+    hr {
+      border: none;
+      border-bottom: 1px dashed grey;
+      margin-block-start: 12px;
+      margin-block-end: 12px;
+      margin-inline-start: auto;
+      margin-inline-end: auto;
+    }
+    > h3 {
+      color: $cl-highlight;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid white;
+      display: flex;
+      align-items: center;
+      > span {
+        text-transform: initial;
+        color: #fbd700;
+        font-weight: normal;
+      }
+      .actions {
+        margin: 0;
+      }
+    }
+    .input-field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 12px;
+      label {
+        margin: 0 0 4px 0;
+        font-size: 12px;
+        font-style: italic;
+        opacity: 0.9;
+        cursor: pointer;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .actions {
+      margin-top: 12px;
+    }
+  }
+  .subform {
+    border-radius: 4px;
+    padding: 12px;
+    background-color: #808080;
+  }
+  .app-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+  }
+
+  .text-field-label > label {
+    color: $cl-textfield-label;
+  }
+
+  .text-editor {
+    background: #424242;
+    color: #fff;
+    font: bold 12pt Inconsolata, monospace;
+  }
+
+  .space {
+    flex: 1;
+  }
+
+  .vertical-scrollbar {
+    ::-webkit-scrollbar {
+      width: $scrollbar-width;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: $scrollbar-bg;
+      border: $scrollbar-border;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: $scrollbar-thumb-bg;
+      border: $scrollbar-border;
+    }
+    ::-webkit-scrollbar-button {
+      display: block;
+      border: $scrollbar-border;
+      background-color: $scrollbar-bg;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+    }
+    ::-webkit-scrollbar-button:vertical:start:increment,
+    ::-webkit-scrollbar-button:vertical:end:decrement,
+    ::-webkit-scrollbar:horizontal {
+      display: none;
+    }
+    ::-webkit-scrollbar-button:vertical:start {
+      background-image: url("./assets/arrow-up.svg");
+    }
+    ::-webkit-scrollbar-button:vertical:end {
+      background-image: url("./assets/arrow-down.svg");
+    }
+  }
+  .hexagon {
+    @include hexagon(100px, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
+  }
+
+  #rpa-diagram canvas,
+  #generic-palette canvas,
+  #rpa-palette canvas,
+  #language-palette canvas,
+  #financial-palette canvas,
+  #applied-ai-palette canvas {
+    outline: none;
+  }
+
+  #flowDiagram div {
+    overflow: hidden;
+  }
+
+  #scroll-dialog-title > h2 {
+    font-size: 21px;
+  }
+
+  #scroll-dialog-title > h2:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    -webkit-animation: ellipsis steps(4, end) 900ms infinite;
+    animation: ellipsis steps(4, end) 900ms infinite;
+    content: "\2026"; /* ascii code for the ellipsis character */
+    width: 0px;
+  }
+
+  .white-theme {
+    $cl-text: #555555;
+    $bd-color: #dedede;
+    background-color: #eeeeee;
+    color: $cl-text;
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="number"],
+    input[type="url"],
+    input[type="file"],
+    input[type="date"],
+    textarea,
+    select {
+      @include placeholder(rgba(0, 0, 0, 0.8));
+      background-color: transparent;
+      border-color: $bd-color;
+      color: $cl-text;
+    }
+    .inputfield,
+    .selectfield {
+      color: $cl-text;
+      > div {
+        border-color: $bd-color;
+        &:before {
+          border-color: $bd-color;
+        }
+        &:hover {
+          border-color: $bd-color;
+          &:before {
+            border-color: $bd-color !important;
+          }
+        }
+      }
+    }
+    .btn {
+      &:hover {
+        // background-color: #506b71;
+      }
+    }
+  }
+}

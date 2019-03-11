@@ -1,0 +1,16 @@
+[
+  {
+    "name": "OCR",
+    "endpoint": "https://faas.amaris.ai/function/ocr4",
+    "image": "Icon_OCR.svg",
+    "parameters": [
+      {
+        "name": "data",
+        "description": "image path",
+        "identifier": "image",
+        "value": "image.png",
+        "type": "string"
+      }
+    ]
+  }
+]

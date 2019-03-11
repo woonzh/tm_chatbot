@@ -1,0 +1,68 @@
+@mixin placeholder($color) {
+  &::placeholder {
+    color: $color;
+    font-size: 97%;
+    font-style: italic;
+  }
+}
+@mixin hexagon($w, $cl, $cl-hover) {
+  $s: 0.5774 * $w;
+  $d: 0.866 * $s;
+  $h: 0.5 * $s;
+  position: relative;
+  width: $w;
+  height: $s + 2 * $h;
+  cursor: pointer;
+  .hexagon-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $w;
+    height: $s;
+    background-color: $cl;
+    margin: $h 0;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      border-color: $cl;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      border-left: $w/2 solid transparent;
+      border-right: $w/2 solid transparent;
+    }
+    &:before {
+      bottom: 100%;
+      border-bottom-width: $h;
+      border-bottom-style: solid;
+    }
+    &:after {
+      top: 100%;
+      width: 0;
+      border-top-width: $h;
+      border-top-style: solid;
+    }
+  }
+  .hexagon-background {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+  }
+  &:hover {
+    .hexagon-shape {
+      background-color: $cl-hover;
+      &:before,
+      &:after {
+        border-color: $cl-hover;
+        border-left-color: transparent;
+        border-right-color: transparent;
+      }
+    }
+  }
+}

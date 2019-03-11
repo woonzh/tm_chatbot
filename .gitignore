@@ -1,0 +1,7 @@
+server/personalised_query/models/*
+server/personalised_query/__pyache__/*
+server/personalised_query/bert_embeddings/*
+server/personalised_query/nlp_embeddings/*
+server/personalised_query/session/*
+frontend/node_modules
+

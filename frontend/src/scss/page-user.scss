@@ -1,0 +1,13 @@
+.page.page-user {
+  > h3 {
+  }
+  .field {
+    display: flex;
+    // width: 50%;
+    // padding-right: 2 * $margin;
+    margin-bottom: $margin;
+    &:nth-child(2n + 0) {
+      padding-right: 0;
+    }
+  }
+}

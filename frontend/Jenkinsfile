@@ -1,0 +1,94 @@
+#!/groovy
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+def notifySlack(String buildStatus = 'STARTED') {
+    // Build status of null means success.
+    buildStatus = buildStatus ?: 'SUCCESS'
+
+    def color
+
+    if (buildStatus == 'STARTED') {
+        color = '#D4DADF'
+    } else if (buildStatus == 'SUCCESS') {
+        color = '#BDFFC3'
+    } else if (buildStatus == 'UNSTABLE') {
+        color = '#FFFE89'
+    } else {
+        color = '#FF9FA1'
+    }
+
+    def msg = "${buildStatus}: `${env.JOB_NAME}` #${env.BUILD_NUMBER}:\n${env.BUILD_URL}"
+
+    slackSend(color: color, message: msg)
+}
+
+node('master') {
+
+  echo "On node: ${env.NODE_NAME}"
+  def APP_NAME = "rpa-frontend"
+  def dateFormat = new SimpleDateFormat("YYYY.MM.dd.HH.mm");
+  def today = new Date();
+  // def TAG_VERSION = dateFormat.format(today);
+  def TAG_VERSION = "0.0.1";
+
+  stage('Checkout') {
+    checkout scm
+  }
+
+  stage ('Build') {
+    echo 'Building'
+    sh 'eval "$(docker-machine env default)"'
+
+    try {
+      notifySlack()
+      docker.withRegistry('https://amarisai-server4.amaris.ai', 'docker-registry') {
+        def customImage = docker.build("${APP_NAME}:${TAG_VERSION}", "--no-cache .")
+        customImage.push()
+      }
+    } catch(err) {
+        echo "Caught: ${err}"
+        currentBuild.result = 'FAILURE'
+    }
+  }
+
+  stage ('Test') {
+    echo 'Testing'
+  }
+
+  stage ('Deploy') {
+    echo 'Deploying'
+    echo "On branch: ${env.BRANCH_NAME}"
+
+    env.TAG_VERSION = TAG_VERSION
+
+    try {
+      switch (env.BRANCH_NAME) {
+        case 'master':
+          env.DEPLOYMENT_ENVIRONMENT = 'prod';
+          env.PROPERTY_FILE = 'env.prod.properties';
+          break;
+        case 'development':
+          env.DEPLOYMENT_ENVIRONMENT = 'development';
+          env.PROPERTY_FILE = 'env.development.properties';
+          break;
+        default: env.DEPLOYMENT_ENVIRONMENT = 'no_deploy';
+      }
+
+      if (env.DEPLOYMENT_ENVIRONMENT != 'no_deploy') {
+        // Stop the currently running container
+        catchError {
+          sh 'docker rm rpa-frontend -f'
+        }
+
+        sh 'docker-compose up -d --force-recreate'
+      }
+    } catch(err) {
+      echo "Caught: ${err}"
+      currentBuild.result = 'FAILURE'
+    } finally {
+      notifySlack(currentBuild.result)
+    }
+  }
+}

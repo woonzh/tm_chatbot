@@ -1,0 +1,6 @@
+{
+  "name": "apa",
+  "script": "./pm2/apa.js",
+  "watch": true,
+  "log_date_format": "YYYY-MM-DD HH:mm Z"
+}
