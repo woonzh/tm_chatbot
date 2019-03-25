@@ -5,3 +5,4 @@ server/personalised_query/nlp_embeddings/*.p
 server/personalised_query/session/*.json
 server/personalised_query/__pycache__/*
 frontend/node_modules
+

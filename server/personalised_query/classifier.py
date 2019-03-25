@@ -94,13 +94,14 @@ class bertClassifier:
 #        self.parameters = {'C':[1, 10, 50]}
 #        self.svc=svm.SVC(kernel='linear', probability=True)
 #        self.clf = GridSearchCV(self.svc, self.parameters, cv=5)
-        self.clf=svm.SVC(kernel='linear', probability=True)
+        self.clf=svm.SVC(kernel='linear', probability=True, decision_function_shape='ovr')
         self.clf.fit(x,y)
         self.storeFunc(self.clf, self.classifier_model_store, 'pickle')
     
     def predict(self,text, num_results=1):
         embeddings=self.getLastLayer([text])[0]
         prob=self.clf.predict_proba([embeddings])
+        return prob
         result=self.getTopRanks(prob,num_results)
         print(result)
         return result
@@ -133,7 +134,6 @@ class bertClassifier:
             store.append(tem)
         return store, embeddings
     
-    #to upgrade and handle bulk text
     def trainClassifier(self, texts, generateEmbeddings=True):
         if generateEmbeddings:
             rawText=[x[0] for x in texts]
@@ -428,25 +428,27 @@ def min_cum_analysis(results):
     
 #nlpClass=nlpClassifier()
 bertclass=bertClassifier()
+
+reply=bertclass.predict('i am hungry. where can i find food.')
     
 #---------data prep-----------
 #prepareData()
-traintext, testtext=readData()
+#traintext, testtext=readData()
 
 #---------training--------
 #train(traintext, True)
 
 #---------testing----------
 
-results=runTest(testtext, 4, [0.5, 0.6, 0.7, 0.8, 0.9])
-
-resultAnalysis={}
-for index in results:
-    print('-------', index)
-    tem_cum, tem_opt=min_cum_analysis(results[index])
-    print(tem_cum)
-    print(tem_opt)
-    resultAnalysis[index]=[tem_cum, tem_opt]
+#results=runTest(testtext, 3, [0.5, 0.6, 0.7, 0.8, 0.9])
+#
+#resultAnalysis={}
+#for index in results:
+#    print('-------', index)
+#    tem_cum, tem_opt=min_cum_analysis(results[index])
+#    print(tem_cum)
+#    print(tem_opt)
+#    resultAnalysis[index]=[tem_cum, tem_opt]
 
 #---ans spread analysis
 #first=results[results['ranking']==1]
