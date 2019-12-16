@@ -10,7 +10,7 @@ pickleshare==0.7.5
 openpyxl==2.6.0
 matplotlib==2.1.0
 pandas==0.23.4
-tensorflow==1.12.0
+tensorflow==1.15.0
 urllib3==1.23
 six==1.11.0
 numpy==1.14.5
