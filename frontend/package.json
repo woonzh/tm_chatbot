@@ -38,7 +38,7 @@
     "lodash": "^4.17.11",
     "mime-types": "^2.1.21",
     "node-fetch": "^2.3.0",
-    "node-sass": "^4.9.3",
+    "node-sass": "^7.0.0",
     "query-string": "^6.2.0",
     "react": "^16.6.0",
     "react-doc-generator": "^1.2.5",
